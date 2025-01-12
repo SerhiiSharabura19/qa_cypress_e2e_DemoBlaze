@@ -1,11 +1,16 @@
 /// <reference types='cypress' />
+let user;
 describe('Demo Blaze Store', () => {
   before(() => {
     cy.task('generateUser').then((generateUser) => {
       user = generateUser;
     });
-    cy.visit('/');
+    
   });
+
+  beforeEach (() => {
+    cy.visit('/');
+  })
 
   it('should register a new user', () => {
     cy.get('#signin2').click();
@@ -19,7 +24,7 @@ describe('Demo Blaze Store', () => {
     cy.get('#loginpassword').type(user.password, `{enter}`);
   });
 
-  it('should login the user', () => {
+  it('should add to cart the Samsung Galaxy S6', () => {
     cy.contains('[href="prod.html?idp_=1"]', 'Samsung galaxy s6').click();
     cy.get('[onclick="addToCart(1)"]').click();
   });

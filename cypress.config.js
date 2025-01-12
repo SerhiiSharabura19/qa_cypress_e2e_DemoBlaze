@@ -8,7 +8,7 @@ module.exports = defineConfig({
       on('task', {
         generateUser() {
           return {
-            username: faker.internet.userName(),
+            username: faker.internet.username(),
             email: faker.internet.email(),
             password: 'Aa12345!',
           };
